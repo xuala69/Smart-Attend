@@ -1,16 +1,19 @@
-# smart_attend
+# Flutter Setup & Run
 
-A new Flutter project.
+Clone the repo from https://github.com/xuala69/Smart-Attend.git
 
-## Getting Started
+Ensure that you are using Flutter version 3.19.6 or higher.
 
-This project is a starting point for a Flutter application.
+No specific setup required for flutter other than the normal setup for a flutter project.
 
-A few resources to get you started if this is your first Flutter project:
+# Websocket setup and run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Once the repo is clones, cd to socketio-server folder and run node index.js
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ensure that you have node installed. You can follow the steps at https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
+
+
+# Communication between Flutter and Socket
+
+Once you run the socket server, check the local ip address of the device you are running (PC/Mac etc where you are running the web socket) and update the ip address at flutter at lib/providers/socket_provider.dart
+line 8 (Replace http://192.168.1.38 with the ip address of you local machine). Once replaced, run the flutter app on you device and the connection will be established and communication will be enabled.
