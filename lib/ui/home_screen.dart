@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_attend/ui/course_details_page.dart';
-import 'package:smart_attend/ui/test.dart';
 import 'package:smart_attend/utils/colors.dart';
-import 'package:smart_attend/utils/fade_route.dart';
 import 'package:smart_attend/utils/widgets.dart';
 import '../providers/auth_provider.dart';
 import '../providers/course_provider.dart';
@@ -30,12 +28,12 @@ class HomeScreen extends ConsumerWidget {
           ),
         ),
         actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(FadeRoute(page: const TestSocketPage()));
-              },
-              icon: const Icon(Icons.system_security_update_good_sharp)),
+          // IconButton(
+          //     onPressed: () {
+          //       Navigator.of(context)
+          //           .push(FadeRoute(page: const TestSocketPage()));
+          //     },
+          //     icon: const Icon(Icons.system_security_update_good_sharp)),
           Container(
             width: 50,
             height: 50,

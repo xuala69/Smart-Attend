@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,7 +63,7 @@ class _CodeEntryScreenState extends State<CodeEntryScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              vs(150),
+              const Spacer(),
               Text(
                 "Enter Code given by Professor",
                 style: GoogleFonts.roboto(
@@ -96,10 +98,15 @@ class _CodeEntryScreenState extends State<CodeEntryScreen> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {
-                        final socket = ref.watch(socketProvider);
-                        socket.emit('attendance',
-                            'New Attendance added for ${txtController.text} ');
-                        _showSuccessDialog();
+                        try {
+                          final socket = ref.watch(socketProvider);
+                          socket.emit('attendance',
+                              'New Attendance added for ${txtController.text} ');
+                          log("emit attendance line");
+                          _showSuccessDialog();
+                        } catch (e) {
+                          log("Error catch: $e");
+                        }
                       },
                       color: AppColors.primary,
                       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -118,6 +125,7 @@ class _CodeEntryScreenState extends State<CodeEntryScreen> {
                   ),
                 ],
               ),
+              const Spacer(),
               const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -179,6 +187,7 @@ class _CodeEntryScreenState extends State<CodeEntryScreen> {
                   const SizedBox(height: 20),
                   MaterialButton(
                     onPressed: () {
+                      Navigator.of(context).pop();
                       Navigator.of(context).pop();
                     },
                     minWidth: 250,
